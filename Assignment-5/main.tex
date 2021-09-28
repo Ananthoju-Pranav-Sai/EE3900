@@ -178,14 +178,14 @@ then
 \end{lemma}
 So from lemma we have 
 \begin{align}
-    \myvec{2 &4}\brak{\myvec{1 &0\\0 &0}\vec{q}+\myvec{-2 \\ \frac{-1}{2}}}=0
+    &\myvec{2 &4}\brak{\myvec{1 &0\\0 &0}\vec{q}+\myvec{-2 \\ \frac{-1}{2}}}=0\\
+    &\implies \myvec{2 &0}\vec{q}=6   \label{b}
 \end{align}
-Let $\vec{q} = \myvec{q_1\\q_2}$ then
+As $\vec{q}$ also lies on conic from $\eqref{a}$ we have
 \begin{align}
-    \myvec{2 &4}\myvec{q_1-2\\\frac{-1}{2}}=0\\
-    q_1 = 3
+    \vec{q}^T\myvec{1 &0\\0 &0}\vec{q}+2\myvec{-2 &\frac{-1}{2}}\vec{q}+4=0 \label{c}
 \end{align}
-As $\vec{q}$ also lies on conic from $\eqref{a}$ we get 
+solving $\eqref{b}$ and $\eqref{c}$ we get
 \begin{align}
     \vec{q} = \myvec{3\\1}
 \end{align}
