@@ -66,6 +66,9 @@ frame=single,
 breaklines=true,
 columns=fullflexible
 }
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
 \begin{document}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{problem}{Problem}
@@ -150,46 +153,39 @@ Equation of the given conic in vector form is
 Therefore we have
 \begin{align}
     \vec{V} &= \myvec{1 &0\\0 &0}\\
-    \vec{u} &= \myvec{-2 \\ \frac{-1}{2}}
+    \vec{u} &= \myvec{-2 \\ \frac{-1}{2}}\\
+    f &= 4
 \end{align}
-Given the tangent is parallel to the chord joining the points $\myvec{2\\0}$ and $\myvec{4\\4}$ then the tangent is given by
-\begin{align}
-    \vec{x} = \vec{q}+\mu\vec{m}
-\end{align}
-where,
+Given the tangent is parallel to the chord joining the points $\myvec{2\\0}$ and $\myvec{4\\4}$. So,
 \begin{align}
     \vec{m} &= \myvec{4\\4} - \myvec{2\\0}\\
-    \vec{m} &= \myvec{2\\4}
+    \vec{m} &= \myvec{2\\4}\\
+    \implies \vec{n} &= \myvec{-4\\2}
 \end{align}
-and $\vec{q}$ is the point of contact of tangent on the curve.
 \begin{lemma}
-If the line
+If $\vec{V}$ is not invertible, given the normal vector $\vec{n}$, the point of contact is given by the matrix equation
 \begin{align}
-    L: \vec{x} = \vec{q}+\mu\vec{m}
+    \myvec{\vec{u}^T+\kappa\vec{n}^T\\\vec{V}}\vec{q} = \myvec{-f\\ \kappa\vec{n}-\vec{q}} 
 \end{align} 
-is tangent to the conic 
+where
 \begin{align}
-    \vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0
-\end{align}
-then 
-\begin{align}
-    \vec{m}^T(\vec{V}\vec{q}+\vec{u})=0
+    \kappa = \frac{\vec{p_1}^Tu}{\vec{p_1}^Tn}\\
+    \vec{V}\vec{p_1}=0
 \end{align}
 \end{lemma}
-So from lemma we have 
+So let $\vec{p_1} = \myvec{0\\2}$ as it satisfies $\vec{V}\vec{p_1}=0$ then
 \begin{align}
-    &\myvec{2 &4}\brak{\myvec{1 &0\\0 &0}\vec{q}+\myvec{-2 \\ \frac{-1}{2}}}=0\\
-    &\implies \myvec{2 &0}\vec{q}=6   \label{b}
+    \kappa &= \frac{\vec{p_1}^Tu}{\vec{p_1}^Tn}\\
+    \kappa &= \frac{\myvec{0 &2}\myvec{-2\\\frac{-1}{2}}}{\myvec{0 &2}\myvec{-4\\2}}\\
+    \kappa &= \frac{-1}{4}
 \end{align}
-As $\vec{q}$ also lies on conic from $\eqref{a}$ we have
+Now the matrix equation 
 \begin{align}
-    \vec{q}^T\myvec{1 &0\\0 &0}\vec{q}+2\myvec{-2 &\frac{-1}{2}}\vec{q}+4=0 \label{c}
+    \myvec{\vec{u}^T+\kappa\vec{n}^T\\\vec{V}}\vec{q} &= \myvec{-f\\ \kappa\vec{n}-\vec{q}}\\
+    \myvec{-1 &-1\\1 &0\\0 &0}\vec{q} &= \myvec{-4\\3\\0}\\
+    \vec{q} &= \myvec{3\\1}
 \end{align}
-solving $\eqref{b}$ and $\eqref{c}$ we get
-\begin{align}
-    \vec{q} = \myvec{3\\1}
-\end{align}
-\begin{figure}[!ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\columnwidth]{plot.png}
     \caption{Plot of the tangent and parabola}
