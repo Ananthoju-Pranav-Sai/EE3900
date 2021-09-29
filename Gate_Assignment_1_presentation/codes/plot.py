@@ -2,7 +2,7 @@ import math
 import cmath
 import numpy as np
 import matplotlib.pyplot as plt
-def a(k):
+def X(k):
     if(k==0):
         return 2
     elif(k>=-3 and k<=3):
@@ -11,12 +11,12 @@ def a(k):
         return 0
 k=np.linspace(-3, 3, num=7)
 #plots
-a_k=[]
+X_k=[]
 for i in k:
-  a_k.append(a(i))
+  X_k.append(X(i))
 
-plt.stem(k,a_k,use_line_collection=True)
+plt.stem(k,X_k,use_line_collection=True)
 plt.xlabel('$k$')
-plt.ylabel('$a_k$')
+plt.ylabel('$X[k]$')
 plt.grid()
 plt.show()
