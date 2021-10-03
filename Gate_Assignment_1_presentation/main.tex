@@ -47,7 +47,7 @@ columns=fullflexible
     \item $x(t)$ is real and even, having a fundamental period of 6
     \item The average value of $x(t)$ is 2
     \item $a_k$ = $\begin{cases} 
-                    k & 1\leq x\leq 3\\
+                    k & 1\leq k\leq 3\\
                     0 & k>3
                   \end{cases}$
     \end{enumerate}
@@ -106,7 +106,7 @@ The given signal is defined as
 where $a_k$ is Fourier Series Coefficient.
 Given that the $x(t)$ is real and even. So the spectrum is also real and even.
 $a_k$ = $\begin{cases} 
-            k & 1\leq x\leq 3\\
+            k & 1\leq k\leq 3\\
             0 & k>3
         \end{cases}$\\  
 % \begin{figure}[!h] 
@@ -125,9 +125,13 @@ $\therefore$ Average power is :
 \end{align}
 \end{frame}
 \begin{frame}{Solution contd..}
+Discrete frequency domain signals are called $X[k]$ and is given by
+\begin{align}
+    X[k]=\frac{1}{T}\int_{0}^{T}x(t)e^{-jk\omega_0t}\,dt
+\end{align}
 \begin{figure}[!h]
          \centering
-         \includegraphics[width=10cm]{plot_X[k].png}
+         \includegraphics[width=7cm]{plot_X[k].png}
          \caption{Plot of $X[k]$}
          \label{plot}
 \end{figure}
