@@ -141,7 +141,7 @@ https://github.com/Ananthoju-Pranav-Sai/EE3900/tree/main/Gate_Assignment_4/Gate_
 \end{lstlisting}
 %
 \section{GATE EC 2000 Q.2.31}
-Let u(t) be the step function. Plot the wave form corresponding to the convolution of u(t)-u(t-1) with u(t)-u(t-1).
+Let u(t) be the step function. Plot the wave form corresponding to the convolution of $u(t)-u(t-1)$ with $u(t)-u(t-1)$.
 \section{Solution}
 We define unit step function as follows 
 \begin{align}
@@ -152,16 +152,18 @@ We define unit step function as follows
 \end{align}
 Now let $f(t)=u(t)-u(t-1)$ and $g(t)=u(t)-u(t-2)$ then,
 \begin{align}
-    f(t) =  \begin{cases} 
+    f(t) &=  \begin{cases} 
         0 & t < 0 \\
         1 & 0\leq t<1\\
         0 & t\geq 1
    \end{cases}\\
-   g(t) =  \begin{cases} 
+   \implies f(t) &= \Pi\brak{t-\frac{1}{2}}\\
+   g(t) &=  \begin{cases} 
         0 & t < 0 \\
         1 & 0\leq t<2\\
         0 & t\geq 2
-   \end{cases}
+   \end{cases}\\
+   \implies g(t) &= \Pi\brak{\frac{t-1}{2}}
 \end{align}
 Let $y(t)$ be convolution of $f(t)$ and $g(t)$ So we have,
 \begin{align}
@@ -173,7 +175,7 @@ Let $y(t)$ be convolution of $f(t)$ and $g(t)$ So we have,
         0 & t < 0 \\ \\
         \int_0^t 1\,d\tau & 0\leq t<1\\ \\
         \int_0^1 1\,d\tau & 1\leq t<2\\ \\
-        \int_{t-2}^1 1\,d\tau & 2\leq t<3\\ \\
+        \int_{t-2}^1 1\,d\tau + \int_1^2e^{-i\omega t}\,d\tau + \int_2^3(3-t)e^{-i\omega t}\,d\tau & 2\leq t<3\\ \\
         0 & t\geq 3
    \end{cases}
 \end{align}
@@ -187,6 +189,24 @@ So we get $y(t)$ as follows
         0 & t\geq 3
    \end{cases}
 \end{align}
+Fourier Transform of the output
+\begin{align}
+    Y(\omega) &= \int_{-\infty}^{\infty}y(t)e^{-i\omega t}\,dt\\
+    Y(\omega) &= \int_0^1 te^{-i\omega t}\,dt + \int_1^2e^{-i\omega t}\,dt + \int_2^3(3-t)e^{-i\omega t}\,dt\\
+    Y(\omega) &= -\frac{e^{-3i\omega} (-1 + e^{i\omega})^2 (1 + e^{i\omega})}{\omega^2}
+\end{align}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{f(t)_plot.png}
+    \caption{Plot of f(t)}
+    \label{plot}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{g(t)_plot.png}
+    \caption{Plot of g(t)}
+    \label{plot}
+\end{figure}
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{y(t)_plot.png}
