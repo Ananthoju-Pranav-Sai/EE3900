@@ -157,13 +157,13 @@ Now let $f(t)=u(t)-u(t-1)$ and $g(t)=u(t)-u(t-2)$ then,
         1 & 0\leq t<1\\
         0 & t\geq 1
    \end{cases}\\
-   \implies f(t) &= \Pi\brak{t-\frac{1}{2}}\\
+   \implies f(t) &= rect\brak{t-\frac{1}{2}}\\
    g(t) &=  \begin{cases} 
         0 & t < 0 \\
         1 & 0\leq t<2\\
         0 & t\geq 2
    \end{cases}\\
-   \implies g(t) &= \Pi\brak{\frac{t-1}{2}}
+   \implies g(t) &= rect\brak{\frac{t-1}{2}}
 \end{align}
 Let $y(t)$ be convolution of $f(t)$ and $g(t)$ So we have,
 \begin{align}
@@ -191,9 +191,22 @@ So we get $y(t)$ as follows
 \end{align}
 Fourier Transform of the output
 \begin{align}
-    Y(\omega) &= \int_{-\infty}^{\infty}y(t)e^{-i\omega t}\,dt\\
-    Y(\omega) &= \int_0^1 te^{-i\omega t}\,dt + \int_1^2e^{-i\omega t}\,dt + \int_2^3(3-t)e^{-i\omega t}\,dt\\
-    Y(\omega) &= -\frac{e^{-3i\omega} (-1 + e^{i\omega})^2 (1 + e^{i\omega})}{\omega^2}
+    Y(\omega)=F(\omega)G(\omega)
+\end{align}
+We know that the fourier transform
+\begin{align}
+    rect\brak{\frac{t}{\tau}}\Longleftrightarrow \tau sinc\brak{\frac{\omega \tau}{2}}
+\end{align}
+and using the properties of fourier transform
+\begin{align}
+    x(t\pm t_0)\Longleftrightarrow X(\omega)e^{\pm i\omega t_0}\\
+    x(\alpha t)\Longleftrightarrow \frac{1}{|\alpha|}X\brak{\frac{\omega}{\alpha}}
+\end{align}
+We get
+\begin{align}
+    F(\omega) &= sinc\brak{\frac{\omega}{2}}e^{\brak{- \frac{i\omega}{2}}}\\
+    G(\omega) &= 2sinc\brak{\omega}e^{-i\omega}\\
+    \implies Y(\omega) &= 2sinc\brak{\omega}sinc\brak{\frac{\omega}{2}}e^{\brak{- \frac{3i\omega}{2}}}
 \end{align}
 \begin{figure}[!ht]
     \centering
