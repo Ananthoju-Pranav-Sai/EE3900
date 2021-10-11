@@ -191,7 +191,7 @@ So we get $y(t)$ as follows
 \end{align}
 Fourier Transform of the output
 \begin{align}
-    Y(\omega)=F(\omega)G(\omega)
+    Y(\omega)=F(\omega)G(\omega)  \label{a}
 \end{align}
 We know that the fourier transform
 \begin{align}
@@ -204,10 +204,13 @@ and using the properties of fourier transform
 \end{align}
 We get
 \begin{align}
-    F(\omega) &= sinc\brak{\frac{\omega}{2}}e^{\brak{- \frac{i\omega}{2}}}\\
-    G(\omega) &= 2sinc\brak{\omega}e^{-i\omega}\\
-    \implies Y(\omega) &= 2sinc\brak{\omega}sinc\brak{\frac{\omega}{2}}e^{\brak{- \frac{3i\omega}{2}}}
+    F(\omega) &= sinc\brak{\frac{\omega}{2}}e^{\brak{- \frac{i\omega}{2}}} \label{b}\\ 
+    G(\omega) &= 2sinc\brak{\omega}e^{-i\omega} \label{c}
 \end{align}
+Using $\eqref{a}$,$\eqref{b}$ and $\eqref{c}$
+\begin{align}
+    \implies Y(\omega) &= 2sinc\brak{\omega}sinc\brak{\frac{\omega}{2}}e^{\brak{- \frac{3i\omega}{2}}}
+\end{align}\\
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{f(t)_plot.png}
@@ -225,5 +228,20 @@ We get
     \includegraphics[width=\columnwidth]{y(t)_plot.png}
     \caption{Simulated plot of output signal y(t)}
     \label{plot}
+\end{figure}\\
+We can represent the output signal as sum of two shifted triangles as follows.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{y(t)_shifted_triangles.png}
+    \caption{y(t) as sum of 2 shifted triangles}
+    \label{plot}
 \end{figure}
+So output signal $y(t)$ can also be written as
+\begin{align}
+    y(t) = \triangle(t-1)+\triangle(t-2)
+\end{align}
+where triangular function $\triangle(t)$ is defined as
+\begin{align}
+    \triangle(t) = rect(t)*rect(t)
+\end{align}
 \end{document}
