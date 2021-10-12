@@ -189,25 +189,25 @@ we get
 \end{align}
 Fourier Transform of the output
 \begin{align}
-    Y(\omega)=F(\omega)G(\omega)  \label{a}
+    Y(f)=F(f)G(f)  \label{a}
 \end{align}
 We know that the fourier transform
 \begin{align}
-    rect\brak{\frac{t}{\tau}}\Longleftrightarrow \tau sinc\brak{\frac{\omega \tau}{2}}
+    rect\brak{\frac{t}{\tau}}\Longleftrightarrow \tau sinc\brak{{f \tau}}
 \end{align}
 and using the properties of fourier transform
 \begin{align}
-    x(t\pm t_0)\Longleftrightarrow X(\omega)e^{\pm i\omega t_0}\\
-    x(\alpha t)\Longleftrightarrow \frac{1}{|\alpha|}X\brak{\frac{\omega}{\alpha}}
+    x(t\pm t_0)\Longleftrightarrow X(f)e^{\pm 2\pi f t_0}\\
+    x(\alpha t)\Longleftrightarrow \frac{1}{|\alpha|}X\brak{\frac{f}{\alpha}}
 \end{align}
 We get
 \begin{align}
-    F(\omega) &= sinc\brak{\frac{\omega}{2}}e^{\brak{- \frac{i\omega}{2}}} \label{b}\\ 
-    G(\omega) &= 2sinc\brak{\omega}e^{-i\omega} \label{c}
+    F(f) &= sinc\brak{f}e^{\brak{-i\pi f }} \label{b}\\ 
+    G(f) &= 2sinc\brak{f}e^{-2i\pi f} \label{c}
 \end{align}
 Using $\eqref{a}$,$\eqref{b}$ and $\eqref{c}$
 \begin{align}
-    \implies Y(\omega) &= 2sinc\brak{\omega}sinc\brak{\frac{\omega}{2}}e^{\brak{- \frac{3i\omega}{2}}}
+    \implies Y(f) &= 2sinc\brak{2f}sinc\brak{f}e^{\brak{- 3i\pi f}}
 \end{align}\\
 \begin{figure}[!ht]
     \centering
