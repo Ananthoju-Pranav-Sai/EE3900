@@ -167,27 +167,25 @@ Now let $f(t)=u(t)-u(t-1)$ and $g(t)=u(t)-u(t-2)$ then,
 \end{align}
 Let $y(t)$ be convolution of $f(t)$ and $g(t)$ So we have,
 \begin{align}
-    y(t) &= \int_{-\infty}^{\infty}f(\tau)g(t-\tau)\,d\tau\\
-    \implies y(t) &= \int_{0}^{1}g(t-\tau)\,d\tau\\
+    y(t) &= rect\brak{t-\frac{1}{2}}*rect\brak{\frac{t-1}{2}}\\
+    y(t) &= rect\brak{t-\frac{1}{2}}*\brak{rect\brak{t-\frac{1}{2}}+rect\brak{t-\frac{3}{2}}}
 \end{align}
+\begin{multline*}
+    y(t) = rect\brak{t-\frac{1}{2}}*rect\brak{t-\frac{1}{2}}+\\rect\brak{t-\frac{1}{2}}*rect\brak{t-\frac{3}{2}}
+\end{multline*}
+We know that 
 \begin{align}
-    y(t) =  \begin{cases} 
-        0 & t < 0 \\ \\
-        \int_0^t 1\,d\tau & 0\leq t<1\\ \\
-        \int_0^1 1\,d\tau & 1\leq t<2\\ \\
-        \int_{t-2}^1 1\,d\tau & 2\leq t<3\\ \\
-        0 & t\geq 3
-   \end{cases}
+    \triangle(t) = rect(t)*rect(t)
 \end{align}
-So we get $y(t)$ as follows
+So by using the following property of convolution
 \begin{align}
-    y(t) =  \begin{cases} 
-        0 & t < 0 \\ 
-        t & 0\leq t<1\\ 
-        1 & 1\leq t<2\\
-        3-t & 2\leq t<3\\
-        0 & t\geq 3
-   \end{cases}
+    x_1(t)*x_2(t) &= y(t)\\
+    x_1(t-t_0)*x_2(t-t_1) &= y(t-t_0-t_1)
+\end{align}
+we get
+\begin{align}
+    y(t) &= \triangle\brak{t-\frac{1}{2}-\frac{1}{2}}+\triangle\brak{t-\frac{1}{2}-\frac{3}{2}}\\
+    \implies y(t) &= \triangle(t-1)+\triangle(t-2)
 \end{align}
 Fourier Transform of the output
 \begin{align}
@@ -228,20 +226,11 @@ Using $\eqref{a}$,$\eqref{b}$ and $\eqref{c}$
     \includegraphics[width=\columnwidth]{y(t)_plot.png}
     \caption{Simulated plot of output signal y(t)}
     \label{plot}
-\end{figure}\\
-We can represent the output signal as sum of two shifted triangles as follows.
+\end{figure}
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\columnwidth]{y(t)_shifted_triangles.png}
     \caption{y(t) as sum of 2 shifted triangles}
     \label{plot}
 \end{figure}
-So output signal $y(t)$ can also be written as
-\begin{align}
-    y(t) = \triangle(t-1)+\triangle(t-2)
-\end{align}
-where triangular function $\triangle(t)$ is defined as
-\begin{align}
-    \triangle(t) = rect(t)*rect(t)
-\end{align}
 \end{document}
