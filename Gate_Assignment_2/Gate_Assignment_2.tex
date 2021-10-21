@@ -149,19 +149,30 @@ For an N-point FFT Algorithm with N = $2^m$ which one of the following statement
     \item computation of a butterfly requires only one complex multiplication.
 \end{enumerate}
 \section{Solution}
-The FFT algorithm decomposes the DFT into $\log_2 N$, each of which consists of N/2 butterfly computations.\\
+The FFT algorithm decomposes the DFT into $\log_2 N$ stages, each of which consists of N/2 butterfly computations.\\
 Each butterfly computes 2 complex numbers p+$\alpha q$ and $p-\alpha q$ where $\alpha$ is a complex number.\\
-The number of butterflies in $m^{th}$ stage is N/2.
-So, option (B) is incorrect.\\
-There are $\log_2 N$ stages and each stage consists of N/2 butterflies and each butterfly consists 2 nodes. So computation requires storage $N\log_2 N$ node data.\\
-So, option (C) is incorrect\\
-As each butterfly computes 2 complex number p+$\alpha q$ and $p-\alpha q$, so it requires one complex multiplication ($\alpha q$) and 2 complex additions. So, option (D) is correct.\\
-It is possible to construct a signal flow graph with input and output in normal.
-Example for m=3.
+\begin{table}[h!]
+\centering
+\begin{tabular}{| m{1.5cm}| m{6cm} |} 
+\hline
+\textbf{Option} & \textbf{Explanation} \\
+\hline&\\[-1em]
+$\boldsymbol{A}$&It is possible to construct a signal flow graph with both input and output in normal order as shown in the figure below.\\[2pt]
+\hline&\\[-1em]
+$\boldsymbol{B}$& The number of butterflies in any stage is N/2\\[2pt]
+\hline&\\[-1em]
+$\boldsymbol{C}$&There are $\log_2 N$ stages and each stage consists of N/2 butterflies and each butterfly consists 2 nodes. So computation requires storage $N\log_2 N$ node data \\[2pt]
+\hline&\\[-1em]
+$\boldsymbol{D}$&Computation of butterfly requires only one complex multiplication and 2 complex addition.\\
+\hline
+\end{tabular}
+\caption{Option explanations}
+\label{table1}
+\end{table}
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\columnwidth]{fft_butterfly.png}
-    \caption{Signal flow graph for m=3}
+    \includegraphics[width=\columnwidth]{SignalFlowGraph.png}
+    \caption{Signal flow graph with both input and output in normal order for m=3}
     \label{fft}
 \end{figure}
 \end{document}
